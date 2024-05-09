@@ -4,10 +4,10 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
+
+@NoArgsConstructor
 @Getter
 @ToString
 @Table
@@ -35,4 +35,6 @@ public class UserAccount extends AuditingFields {
         this.email = email;
         this.nickname = nickname;
     }
+
+
 }
