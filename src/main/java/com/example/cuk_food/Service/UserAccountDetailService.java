@@ -30,13 +30,10 @@ public class UserAccountDetailService implements UserDetailsService {
         return org.springframework.security.core.userdetails.User.builder()
                 .username(userAccount.getUserId())
                 .password(userAccount.getUserPassword())
-                // Add any additional roles or authorities here if needed
                 .roles("USER")
                 .build();
     }
 
-
-    //사용자 id로 사용자 정보를 가져오는 메서드
 
 
 }
