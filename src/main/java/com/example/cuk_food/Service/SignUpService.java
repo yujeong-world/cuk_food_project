@@ -7,12 +7,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class JoinService {
+public class SignUpService {
 
     private final PasswordEncoder passwordEncoder;
     private final UserAccountRepository userAccountRepository;
 
-    public JoinService(PasswordEncoder passwordEncoder, UserAccountRepository userAccountRepository) {
+    public SignUpService(PasswordEncoder passwordEncoder, UserAccountRepository userAccountRepository) {
         this.passwordEncoder = passwordEncoder;
         this.userAccountRepository = userAccountRepository;
     }
