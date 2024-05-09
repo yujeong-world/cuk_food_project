@@ -22,7 +22,7 @@ public abstract class AuditingFields {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     @CreatedDate
     @Column(nullable = false, updatable = false) //updatable = false 이필드는 업데이트 불가하다, 최초한번만 생성가능
-    private LocalDateTime createdAt; //생성일시
+    private LocalDateTime createdAt; //생성일
     @CreatedBy
     @Column(nullable = false, length = 100, updatable = false)
     private String createdBy; //생성자
