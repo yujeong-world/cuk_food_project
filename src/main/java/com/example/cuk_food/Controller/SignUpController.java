@@ -1,7 +1,8 @@
 package com.example.cuk_food.Controller;
 import com.example.cuk_food.request.SignupRequest;
-import com.example.cuk_food.response.SignupResponse;
+
 import com.example.cuk_food.Service.SignUpService;
+import com.example.cuk_food.request.SignupResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
