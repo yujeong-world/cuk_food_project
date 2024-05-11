@@ -1,5 +1,4 @@
 package com.example.cuk_food.Service;
-
 import com.example.cuk_food.dto.ProductDto;
 import com.example.cuk_food.entity.Product;
 import com.example.cuk_food.repository.ProductRepository;
@@ -20,29 +19,35 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
-
     //1. 생성
+    @Transactional
     public Product createProduct(ProductDto productDto) {
-        // DTO를 엔티티로 변환
         Product product = new Product();
-        product.setCategory_code(productDto.getCategory_code());
-        product.setProduct_name(productDto.getProduct_name());
-
-        // 상품 저장
+        product.setCategoryCode(productDto.getCategory_code());
+        product.setProductName(productDto.getProduct_name());
         return productRepository.save(product);
     }
 
 
-    //2. 조회
+    //2. 카테고리 조회
     @Transactional
-    public Page<ProductDto> getProducts(String searchKeyword, Pageable pageable) {
-        Page<Product> products = null;
-        if (searchKeyword == null || searchKeyword.isBlank()) {
+    public Page<ProductDto> getProducts(String categoryCode, String searchTerm, Pageable pageable) {
+        // 1. 초기화
+        Page<Product> products;
+
+        // 2. 카테고리 null 또는 빈칸 && 상품이름 null 또는 빈칸 이면 전체 조회
+        if ((categoryCode == null || categoryCode.isBlank()) && (searchTerm == null || searchTerm.isBlank())) {
             products = productRepository.findAll(pageable);
+
+        // 3. 상품이름이 null 빈칸 아니면 상품 이름 조회
+        } else if (searchTerm != null && !searchTerm.isBlank()) {
+            products = productRepository.findByProductNameContaining(searchTerm, pageable);
+
+        // 4. 그밖에는 카테고리 조회
+        } else {
+            products = productRepository.findByCategoryCode(categoryCode, pageable);
         }
-
-        // Page<Product>을 Page<ProductDto>로 변환
-        return Objects.requireNonNull(products).map(ProductDto::fromEntity);
+        // 5. 위에 조건중 적합한 products 반환
+        return products.map(ProductDto::fromEntity);
     }
-
 }

@@ -14,9 +14,9 @@ public class ProductDto {
 
     public static ProductDto fromEntity(Product product){
         return ProductDto.builder()
-                .product_id(product.getProduct_id())
-                .category_code(product.getCategory_code())
-                .product_name(product.getProduct_name())
+                .product_id(product.getProductId())
+                .category_code(product.getCategoryCode())
+                .product_name(product.getProductName())
                 .build();
     }
 }
