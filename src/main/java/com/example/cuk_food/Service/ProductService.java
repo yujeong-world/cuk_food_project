@@ -35,7 +35,7 @@ public class ProductService {
 
     //2. 조회
     @Transactional
-    public Page<ProductDto> index(String searchKeyword, Pageable pageable) {
+    public Page<ProductDto> getProducts(String searchKeyword, Pageable pageable) {
         Page<Product> products = null;
         if (searchKeyword == null || searchKeyword.isBlank()) {
             products = productRepository.findAll(pageable);
