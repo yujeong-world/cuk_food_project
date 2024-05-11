@@ -21,4 +21,5 @@ public class Cart extends AuditingFields{
     //수량
     @Setter
     private int qty;
+
 }
