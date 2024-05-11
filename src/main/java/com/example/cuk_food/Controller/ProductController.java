@@ -3,8 +3,6 @@ package com.example.cuk_food.Controller;
 import com.example.cuk_food.Service.ProductService;
 import com.example.cuk_food.dto.ProductDto;
 import com.example.cuk_food.entity.Product;
-import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -14,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api")
 public class ProductController {
+
+
 
     private final ProductService productService;
 
@@ -44,10 +44,10 @@ public class ProductController {
 
     //2. 읽기
     @GetMapping("/products")
-    public ResponseEntity<Page<ProductDto>> index(@RequestParam(required = false) String searchType,
+    public ResponseEntity<Page<ProductDto>> getProducts(@RequestParam(required = false) String category,
                                                   Pageable pageable) {
 
-        Page<ProductDto> productPage = productService.index(searchType, pageable);
+        Page<ProductDto> productPage = productService.getProducts(category, pageable);
         return ResponseEntity.status(HttpStatus.OK).body(productPage);
     }
 
