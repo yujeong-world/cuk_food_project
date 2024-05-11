@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Table
-@NoArgsConstructor      // JPA ENTITY 기본 생성자 생성(필수)
+@NoArgsConstructor
 @Getter
 @Entity
 public class Product extends AuditingFields {
