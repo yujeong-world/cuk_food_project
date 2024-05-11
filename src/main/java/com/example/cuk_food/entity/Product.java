@@ -22,4 +22,10 @@ public class Product extends AuditingFields {
     @Setter private String categoryCode;
 
     @Setter private String productName;
+
+    //상품 가격
+    @Setter private int price;
+
+    //상품 이미지
+    @Setter private String productImg;
 }
