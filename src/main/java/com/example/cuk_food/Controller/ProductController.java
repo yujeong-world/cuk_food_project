@@ -18,7 +18,7 @@ public class ProductController {
         this.productService = productService;
     }
 
-    //1. 생성
+    //1. 생성(C)
     @PostMapping("/products")
     public ResponseEntity<ProductDto> create(@RequestBody ProductDto productDto) {
         try {
@@ -38,6 +38,7 @@ public class ProductController {
         }
     }
 
+    // 2. 조회(R)
     @GetMapping("/products")
     public ResponseEntity<Page<ProductDto>> getProducts(@RequestParam(required = false) String category,
                                                         @RequestParam(required = false) String searchTerm,
