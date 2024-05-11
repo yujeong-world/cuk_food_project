@@ -17,9 +17,9 @@ public class Product extends AuditingFields {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long product_id;
+    private Long productId;
 
-    @Setter private String category_code;
+    @Setter private String categoryCode;
 
-    @Setter private String product_name;
+    @Setter private String productName;
 }

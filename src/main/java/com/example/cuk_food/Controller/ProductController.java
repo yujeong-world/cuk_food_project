@@ -8,7 +8,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 @RestController
 @RequestMapping("/api")
 public class ProductController {
@@ -39,14 +38,11 @@ public class ProductController {
         }
     }
 
-
-    //2. 읽기
     @GetMapping("/products")
     public ResponseEntity<Page<ProductDto>> getProducts(@RequestParam(required = false) String category,
-                                                  Pageable pageable) {
-
-        Page<ProductDto> productPage = productService.getProducts(category, pageable);
+                                                        @RequestParam(required = false) String searchTerm,
+                                                        Pageable pageable) {
+        Page<ProductDto> productPage = productService.getProducts(category, searchTerm, pageable);
         return ResponseEntity.status(HttpStatus.OK).body(productPage);
     }
-
 }
