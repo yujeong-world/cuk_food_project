@@ -1,5 +1,4 @@
 package com.example.cuk_food.Controller;
-
 import com.example.cuk_food.Service.ProductService;
 import com.example.cuk_food.dto.ProductDto;
 import com.example.cuk_food.entity.Product;
@@ -46,4 +45,7 @@ public class ProductController {
         Page<ProductDto> productPage = productService.getProducts(category, searchTerm, pageable);
         return ResponseEntity.status(HttpStatus.OK).body(productPage);
     }
+
+
+
 }
