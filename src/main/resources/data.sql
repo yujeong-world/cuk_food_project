@@ -22,6 +22,8 @@ INSERT INTO CART(cart_id, created_at, created_by, modified_at, modified_by, qty,
 VALUES (2, '2024-05-10', '유정', '2024-05-11', '유정', 3, 8);
 
 SELECT * FROM CART;
-
+SELECT * FROM REVIEW;
 select * from product;
 
+INSERT INTO REVIEW(review_id, created_at, created_by, modified_at, modified_by, context, product_id)
+VALUES (1, '2024-05-12', '햄쓰떡대마왕', '2024-05-12', '햄쓰떡대마왕', '스케쳐스 신발 넘넘 편하구 좋아요 강추!@!@!', 1);
