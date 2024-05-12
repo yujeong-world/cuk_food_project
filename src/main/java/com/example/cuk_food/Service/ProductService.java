@@ -2,6 +2,7 @@ package com.example.cuk_food.Service;
 import com.example.cuk_food.dto.ProductDto;
 import com.example.cuk_food.entity.Product;
 import com.example.cuk_food.repository.ProductRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -46,5 +47,15 @@ public class ProductService {
         }
         // 2-5. 위에 조건중 적합한 products 반환
         return products.map(ProductDto::fromEntity);
+    }
+
+    // 상품 단건 조회
+    public ProductDto getProductOne(Long productId){
+        // 조회
+        Product product= productRepository.findById(productId)
+                .orElseThrow(() -> new EntityNotFoundException("id가 없으면 예외처리"));
+
+
+        return ProductDto.fromEntity(product);
     }
 }
