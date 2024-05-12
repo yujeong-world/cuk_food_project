@@ -1,4 +1,5 @@
 package com.example.cuk_food.Controller;
+
 import com.example.cuk_food.Service.ProductService;
 import com.example.cuk_food.dto.ProductDto;
 import com.example.cuk_food.entity.Product;
@@ -46,6 +47,10 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.OK).body(productPage);
     }
 
-
-
+    // 상품 단건조회
+    @GetMapping("/product/{productId}")
+    public ResponseEntity<ProductDto> productDetail(@PathVariable Long productId){
+        ProductDto productDto = productService.getProductOne(productId);
+        return ResponseEntity.status(HttpStatus.OK).body(productDto);
+    }
 }

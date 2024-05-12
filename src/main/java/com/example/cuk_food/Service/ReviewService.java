@@ -1,6 +1,7 @@
 package com.example.cuk_food.Service;
 
 import com.example.cuk_food.dto.ReviewDto;
+import com.example.cuk_food.entity.Product;
 import com.example.cuk_food.entity.Review;
 import com.example.cuk_food.repository.ProductRepository;
 import com.example.cuk_food.repository.ReviewRepository;
@@ -22,15 +23,14 @@ public class ReviewService {
     public Page<ReviewDto> getReviewList(Long productCode, Pageable pageable){
         Page<Review> reviews;
 
-        // 전체 조회, 상품 코드를 먼저 조회하여 리뷰가 있는지 확인
-        boolean isExitReview = productRepository.existsById(productCode);
 
-        if(isExitReview != false){
-            reviews = reviewRepository.findByProduct(productCode, pageable);
+        // 상품 조회
+        Product product = productRepository.findById(productCode)
+                .orElseThrow(() -> new IllegalArgumentException("해당 상품을 찾을 수 없습니다."));
 
-        }else{
-            throw new RuntimeException("데이터가 존재하지 않습니다.");
-        }
+        // 리뷰 조회
+        reviews = reviewRepository.findByProduct(product, pageable);
+
         return reviews.map(ReviewDto::fromEntity);
 
 
