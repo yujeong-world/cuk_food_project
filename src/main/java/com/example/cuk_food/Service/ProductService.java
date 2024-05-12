@@ -7,8 +7,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Objects;
-
 
 @Service
 public class ProductService {
@@ -27,7 +25,6 @@ public class ProductService {
         product.setProductName(productDto.getProduct_name());
         return productRepository.save(product);
     }
-
 
     //2. 카테고리 조회 (R)
     @Transactional

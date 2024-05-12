@@ -1,9 +1,8 @@
 package com.example.cuk_food.dto;
-
 import com.example.cuk_food.entity.Product;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
+
 
 @Getter
 @Builder
