@@ -47,7 +47,7 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.OK).body(productPage);
     }
 
-    // 상품 단건조회
+    // 3.상품 단건조회
     @GetMapping("/product/{productId}")
     public ResponseEntity<ProductDto> productDetail(@PathVariable Long productId){
         ProductDto productDto = productService.getProductOne(productId);

@@ -49,12 +49,11 @@ public class ProductService {
         return products.map(ProductDto::fromEntity);
     }
 
-    // 상품 단건 조회
+    //3. 상품 단건 조회
     public ProductDto getProductOne(Long productId){
         // 조회
         Product product= productRepository.findById(productId)
-                .orElseThrow(() -> new EntityNotFoundException("id가 없으면 예외처리"));
-
+                .orElseThrow(() -> new EntityNotFoundException("id가 없으면 예외 처리"));
 
         return ProductDto.fromEntity(product);
     }

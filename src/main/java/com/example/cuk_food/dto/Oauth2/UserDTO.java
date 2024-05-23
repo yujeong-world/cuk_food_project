@@ -1,9 +1,5 @@
 package com.example.cuk_food.dto.Oauth2;
 
-
-
-// 1. E
-
 import lombok.Getter;
 import lombok.Setter;
 
