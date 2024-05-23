@@ -24,4 +24,7 @@ public class Product extends AuditingFields {
     @Setter private int price;
     //상품 이미지
     @Setter private String productImg;
+
+    //상품 상세 이미지
+    @Setter private String productInfoImg;
 }

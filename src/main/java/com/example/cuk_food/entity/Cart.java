@@ -22,4 +22,9 @@ public class Cart extends AuditingFields{
     @Setter
     private int qty;
 
+    //사용자 아이디
+    @ManyToOne
+    @JoinColumn(name = "id")
+    private UserEntity userEntity;
+
 }
