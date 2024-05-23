@@ -6,19 +6,14 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
-
 @Entity
 @Getter
-public class UserEntity{
-
+@Setter
+public class RefreshEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Setter private String username;
-    @Setter private String name;
-    @Setter private String email;
-    @Setter private String role;
-    @Setter private LocalDateTime createdAt;
+    private String username;
+    private String refresh;
+    private String expiration;
 }
