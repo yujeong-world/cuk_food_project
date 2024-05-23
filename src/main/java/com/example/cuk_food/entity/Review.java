@@ -24,5 +24,8 @@ public class Review  extends AuditingFields{
     private Product product;
 
     //이후, 회원 엔티티와 연동 필요 ...
+    @ManyToOne
+    @JoinColumn(name = "id")
+    private UserEntity userEntity;
 
 }
