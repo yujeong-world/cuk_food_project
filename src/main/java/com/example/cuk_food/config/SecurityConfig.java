@@ -54,7 +54,7 @@ public class SecurityConfig {
                 .addFilterBefore(new CustomLogoutFilter(jwtUtil, refreshRepository), LogoutFilter.class)
                 .oauth2Login(oauth2 -> oauth2.userInfoEndpoint(userInfoEndpoint -> userInfoEndpoint.userService(customOAuth2UserService))
                         .successHandler(customSuccessHandler))
-                .authorizeHttpRequests(auth -> auth.requestMatchers("/", "/reissue").permitAll().anyRequest().authenticated())
+                .authorizeHttpRequests(auth -> auth.requestMatchers("/", "/api/products/**","/api/review/**","/reissue").permitAll().anyRequest().authenticated())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
         return http.build();
