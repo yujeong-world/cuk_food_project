@@ -24,9 +24,6 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
     public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
 
         OAuth2User oAuth2User = super.loadUser(userRequest);
-
-        System.out.println(oAuth2User);
-
         String registrationId = userRequest.getClientRegistration().getRegistrationId();
 
         // 1. 초기화
@@ -80,6 +77,7 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
             userDTO.setUsername(username);
             //7. 실제 구글이나, 네이버의 이름 아이디 받아옴
             userDTO.setName(oAuth2Response.getName());
+            userDTO.setEmail(oAuth2Response.getEmail());
             //8. 임의로 유저 역할 설정
             userDTO.setRole("ROLE_USER");
 
@@ -98,6 +96,7 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
             UserDTO userDTO = new UserDTO();
             userDTO.setUsername(existData.getUsername());
             userDTO.setName(oAuth2Response.getName());
+            userDTO.setEmail(oAuth2Response.getEmail());
             userDTO.setRole(existData.getRole());
 
             return new CustomOAuth2User(userDTO);
