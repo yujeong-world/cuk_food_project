@@ -17,7 +17,7 @@ public class QnADto {
     public static QnADto fromEntity(QnAEntity qnAEntity){
         return QnADto.builder()
                 .qnaId(qnAEntity.getQnaId())
-//                .productId(qnAEntity.getProduct().getProductId())
+                .productId(qnAEntity.getProduct().getProductId())
                 .question(qnAEntity.getQuestion())
                 .questionerName(qnAEntity.getQuestioner().getName()) // 작성자의 이름 포함
                 .createdAt(qnAEntity.getCreatedAt().toString()) // 작성 시간 포함

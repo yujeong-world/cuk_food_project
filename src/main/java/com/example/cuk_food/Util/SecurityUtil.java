@@ -7,7 +7,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 
 @NoArgsConstructor
 public class SecurityUtil {
-
     public static String getCurrentUsername() {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (principal instanceof CustomOAuth2User) {
