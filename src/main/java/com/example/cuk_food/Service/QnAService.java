@@ -48,6 +48,8 @@ public class QnAService {
         Product product = productRepository.findById(qnADto.getProductId())
                 .orElseThrow(() -> new RuntimeException("Product not found: " + qnADto.getProductId())); // 제품 정보 없을 시 예외 발생
 
+        log.info("product : {}",product);
+
         // 질문 엔티티 생성 및 저장
         QnAEntity qnaEntity = new QnAEntity();
         qnaEntity.setQuestioner(user); // 질문 작성자 설정

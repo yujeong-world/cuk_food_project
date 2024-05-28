@@ -19,13 +19,14 @@ public class Review  extends AuditingFields{
     @Setter
     private String context;
 
+    @Setter
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
 
-    //이후, 회원 엔티티와 연동 필요 ...
+    @Setter
     @ManyToOne
-    @JoinColumn(name = "id")
-    private UserEntity userEntity;
+    @JoinColumn(name = "reviewer_id", nullable = false)
+    private UserEntity reviewer; // 리뷰 작성자
 
 }
